@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>User Registration</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            Fill in the details and press the register button.
+            <br/>
+            <h:outputLabel for="email" value="*Email:"/>
+            <h:inputText id ="email" value="#{registrationBean.email}" title="Enter user name" required="true" requiredMessage="Mandatory Field"/>
+            &nbsp; 
+            <h:message style="color:red" for="email"/>
+            <br/>
+            <h:outputLabel for="userPassword" value="*Password:"/>
+            <h:inputSecret id ="userPassword" value="#{registrationBean.password}" title="Enter password" label="password" required="true" requiredMessage="Mandatory Field"/>
+            &nbsp; 
+            <h:message style="color:red" for="userPassword"/>
+            <br/>
+            <h:outputLabel for="firstName" value="*FirstName:"/>
+            <h:inputText id ="firstName" value="#{registrationBean.firstName}" title="Enter user name" required="true" requiredMessage="Mandatory Field"/>
+            &nbsp; 
+            <h:message style="color:red" for="firstName"/>
+            <br/>
+            <h:outputLabel for="lastName" value="*LastName:"/>
+            <h:inputSecret id ="lastName" value="#{registrationBean.lastName}" title="Enter password" label="password" required="true" requiredMessage="Mandatory Field"/>
+            &nbsp; 
+            <h:message style="color:red" for="lastName"/>
+            <br/>
+            <h:outputLabel for="type" value="*Type:"/>
+            <h:inputSecret id ="type" value="#{registrationBean.type}" title="Enter password" label="password" required="true" requiredMessage="Mandatory Field"/>
+            &nbsp; 
+            <h:message style="color:red" for="type"/>
+            <br/>
+            <h:commandButton id="register" type="submit" value="Register" action="#{registrationBean.register()}" title="Register User"/>
+            <h:commandButton id="reset" type="reset" value="Reset Form" title="Reset Form"/>
+        </h:form>
+    </h:body>
+</html>

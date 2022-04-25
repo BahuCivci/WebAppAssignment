@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+        <title>Create User</title> 
+    </h:head>
+    <h:body>
+        
+         <a href = "/Webapps2022">Home</a>
+        <a href = "/Webapps2022/faces/admins/admin.xhtml">Go back to admin page..</a>
+
+        <br/>
+        
+        
+<!--        <h:link value="Home" outcome="faces/index.xhtml"/> <br/>-->
+
+<!--        Go back to admin page..<h:link value="admin" outcome="faces/admins/admin.xhtml"/> <br/>-->
+        <h:form>
+            Logout: <h:commandButton value="Logout" action="#{loginBean.logout()}"/>
+        </h:form> <br/>
+        
+        
+        <h:form>
+           
+                <h:column>
+                    <h:outputLabel value="FirstName:"/>
+                </h:column>
+                <h:column>
+                    <h:inputText value="#{user.firstName}"  required="true" requiredMessage="First name is required"/>
+                </h:column>
+            
+           
+                <h:column>
+                    <h:outputLabel value="LastName:" />
+                </h:column>
+                <h:column>
+                    <h:inputText value="#{user.lastName}" required="true" requiredMessage="Last name is required"/>
+                </h:column>
+    
+                <h:column>
+                    <h:outputLabel value="Email"/>
+                </h:column>
+                <h:column>
+                    <h:inputText value="#{user.email}" validatorMessage="Please enter a valid email like abc@123.com">
+                        <f:validateRegex pattern="(\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*)" />
+                    </h:inputText>
+                </h:column>
+         
+                <h:column>
+                    <h:outputLabel value="Password:"/>
+                </h:column>
+                <h:column>
+                    <h:inputText value="#{user.password}"  required="true" requiredMessage="Password is required" />
+                </h:column>
+        
+                <h:column>
+                    <h:outputLabel value="Phone Number:"/>
+                </h:column>
+                <h:column>
+                    <h:inputText value="#{user.phoneNumber}"  validatorMessage="Please enter a valid phone number like 0406 123-456">
+                        <f:validateRegex pattern="(\d{4} \d{3}\-\d{3})" />
+                    </h:inputText>
+                </h:column>
+          
+                <h:column>
+                    <h:outputLabel value="User Type:"/>
+                </h:column>
+                <h:column>
+                    <h:inputText value="#{user.type}" required="true" requiredMessage="User type is required">
+                    </h:inputText>
+                        
+                </h:column>
+        
+                <h:column>
+                    <h:commandButton value="Create"  action="#{userController.addUser(user)}" />
+                </h:column>
+            
+        </h:form> 
+    </h:body>
+</html>

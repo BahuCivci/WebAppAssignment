@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Transaction List</title>
+    </h:head>
+        <h:body>
+            
+                    <a href = "/Webapps2022">Home</a>
+        <a href = "/Webapps2022/faces/admins/admin.xhtml">Go back to admin page..</a>
+
+
+        
+        
+<!--                <h:link value="Home" outcome="faces/index.xhtml"/> <br/>
+
+        <h:link value="admin" outcome="faces/admins/admin.xhtml"/> <br/>-->
+        
+
+        <h:form>
+            
+            <h2>Transaction List</h2>
+
+            <h:dataTable value="#{transactionManagedBean.allTransactions}"
+                         var="transaction" >
+                <h:column>
+                    <f:facet name="header"> Id: </f:facet>
+                    #{transaction.transactionId} />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header"> Name: </f:facet>
+                    #{transaction.transactionName} />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header"> Type: </f:facet>
+                    #{transaction.transactionType} />
+                </h:column>
+
+
+                <h:column>
+                    <h:commandButton value="Detail"  action="transaction" >
+                        <f:param name="transactionId" value="#{transaction.transactionId}"></f:param>
+                    </h:commandButton>
+                </h:column>
+            </h:dataTable>
+
+
+        </h:form>     
+   
+        
+        </h:body>
+
+    
+    
+
+    
+</html>
+

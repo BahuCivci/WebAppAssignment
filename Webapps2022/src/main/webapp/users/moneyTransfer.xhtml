@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Money Transfer</title> 
+    </h:head>
+    <h:body>
+
+        <a href = "/Webapps2022">Home</a>
+        <a href = "/Webapps2022/faces/users/user.xhtml">Go to a user page</a>
+
+
+<!--        <h:link value="Home" outcome="faces/index.xhtml"/> <br/>
+        <h:link value="Go to a user page" outcome="faces/users/user.xhtml"/>-->
+        <br/>      
+
+        <h:form>
+            Logout: <h:commandButton value="Logout" action="#{loginBean.logout()}"/>
+        </h:form>
+
+
+        <ul>
+            <li><a href="#{userController.logout()}">Logout</a></li>
+        </ul>
+
+        <h:form>
+
+            <h2>Send Money</h2>
+
+            <h:column>
+                <h:outputLabel value="From Account Id:"/>
+            </h:column>
+            <h:column>
+                <h:inputText value="#{moneyController.fromId}"  required="true" validatorMessage="Please enter a valid account id">
+                    <f:validateRegex pattern="\d+" />
+                </h:inputText>
+            </h:column>
+
+
+            <h:column>
+                <h:outputLabel value="To Account Id:" />
+            </h:column>
+            <h:column>
+                <h:inputText value="#{moneyController.toId}"  required="true" validatorMessage="Please enter a valid account id">
+                    <f:validateRegex pattern="\d+" />
+                </h:inputText>
+            </h:column>
+
+
+            <h:column>
+                <h:outputLabel value="Amount:"/>
+            </h:column>
+            <h:column>
+                <h:inputText value="#{moneyController.amount}" validatorMessage="Please enter a valid amount">
+                    <f:validateRegex pattern="(\d+(\.\d+)?)" />
+                </h:inputText>
+            </h:column>
+
+
+            <h:column>
+                <h:outputLabel value="Message:"/>
+            </h:column>
+            <h:column>
+                <h:inputText value="#{moneyController.message}"/>
+            </h:column>
+
+
+
+            <h:column>
+                <h:commandButton value="Transfer"  action="#{moneyController.transfer()}">
+                </h:commandButton>
+            </h:column>
+
+        </h:form> 
+    </h:body>
+</html>
